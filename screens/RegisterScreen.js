@@ -20,7 +20,6 @@ const RegisterScreen = ({ navigation }) => {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((authUser) => {
-        // console.log("The auth user was: ", authUser);
         authUser.user.updateProfile({
           displayName: name,
           photoURL:
