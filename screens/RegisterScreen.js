@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import { auth } from "../firebase";
+import React, { useLayoutEffect, useState } from "react";
 import { KeyboardAvoidingView, StyleSheet, View } from "react-native";
 import { Button, Input, Text } from "react-native-elements";
 
@@ -9,7 +10,26 @@ const RegisterScreen = ({ navigation }) => {
   const [password, setPassword] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
-  const register = () => {};
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerBackTitle: "Back to Login",
+    });
+  }, [navigation]);
+
+  const register = () => {
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((authUser) => {
+        // console.log("The auth user was: ", authUser);
+        authUser.user.updateProfile({
+          displayName: name,
+          photoURL:
+            imageUrl ||
+            "https://cencup.com/wp-content/uploads/2019/07/avatar-placeholder.png",
+        });
+      })
+      .catch((err) => alert(err.message));
+  };
 
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
@@ -42,7 +62,7 @@ const RegisterScreen = ({ navigation }) => {
           placeholder="Profile Picture URL (optional)"
           type="text"
           value={imageUrl}
-          onChangeText={(text) => setName(text)}
+          onChangeText={(text) => setImageUrl(text)}
         />
       </View>
       <Button
