@@ -32,8 +32,7 @@ const ChatScreen = ({ navigation, route }) => {
           <Avatar
             rounded
             source={{
-              uri:
-                "https://cencup.com/wp-content/uploads/2019/07/avatar-placeholder.png",
+              uri: messages[messages.length - 1]?.data.photoURL,
             }}
           />
           <Text style={{ color: "white", marginLeft: 10, fontWeight: "700" }}>
@@ -67,10 +66,9 @@ const ChatScreen = ({ navigation, route }) => {
         </View>
       ),
     });
-  }, [navigation]);
+  }, [navigation, messages]);
 
   const sendMessage = () => {
-    console.log("Sending message");
     Keyboard.dismiss();
 
     db.collection("chats").doc(route.params.id).collection("messages").add({
