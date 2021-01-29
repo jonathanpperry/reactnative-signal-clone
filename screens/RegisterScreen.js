@@ -1,48 +1,54 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { KeyboardAvoidingView, StyleSheet, Text, View } from "react-native";
-import { Button, Input, Image } from "react-native-elements";
+import { KeyboardAvoidingView, StyleSheet, View } from "react-native";
+import { Button, Input, Text } from "react-native-elements";
 
-const LoginScreen = ({ navigation }) => {
+const RegisterScreen = ({ navigation }) => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
-  const signIn = () => {
-    // console.log("Signing in");
-  };
+  const register = () => {};
 
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <StatusBar style="light" />
-      <Image
-        source={{
-          uri:
-            "https://blog.mozilla.org/internetcitizen/files/2018/08/signal-logo.png",
-        }}
-        style={{ width: 200, height: 200 }}
-      />
+      <Text h3 style={{ marginBottom: 50 }}>
+        Create a Signal acount
+      </Text>
       <View style={styles.inputContainer}>
         <Input
-          placeholder="Email"
+          placeholder="Full Name"
           autoFocus
+          type="text"
+          value={name}
+          onChangeText={(text) => setName(text)}
+        />
+        <Input
+          placeholder="Email"
           type="email"
           value={email}
           onChangeText={(text) => setEmail(text)}
         />
         <Input
           placeholder="Password"
-          secureTextEntry
           type="password"
+          secureTextEntry
           value={password}
           onChangeText={(text) => setPassword(text)}
         />
+        <Input
+          placeholder="Profile Picture URL (optional)"
+          type="text"
+          value={imageUrl}
+          onChangeText={(text) => setName(text)}
+        />
       </View>
-
-      <Button containerStyle={styles.button} onPress={signIn} title="Login" />
       <Button
-        onPress={() => navigation.navigate("Register")}
         containerStyle={styles.button}
-        type="outline"
+        raised
+        onPress={register}
         title="Register"
       />
       <View style={{ height: 100 }} />
@@ -50,13 +56,10 @@ const LoginScreen = ({ navigation }) => {
   );
 };
 
-export default LoginScreen;
+export default RegisterScreen;
 
 const styles = StyleSheet.create({
-  button: {
-    width: 200,
-    marginTop: 10,
-  },
+  button: { width: 200, marginTop: 10 },
   container: {
     flex: 1,
     alignItems: "center",
