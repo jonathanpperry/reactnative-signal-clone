@@ -4,13 +4,13 @@ import "firebase/auth";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCxZ6r7gqKfAQE9ppG2b-d4ELw7pLeq63Q",
-  authDomain: "signal-clone-216f1.firebaseapp.com",
-  projectId: "signal-clone-216f1",
-  storageBucket: "signal-clone-216f1.appspot.com",
-  messagingSenderId: "396850199902",
-  appId: "1:396850199902:web:24e5b505961b5ac24fe3cf",
-  measurementId: "G-YTY93ZLNXY",
+  apiKey: "AIzaSyBDdA7sRcJ7eDCvf6LzX2PXtsiP1Df9xLc",
+  authDomain: "signal-c4079.firebaseapp.com",
+  projectId: "signal-c4079",
+  storageBucket: "signal-c4079.appspot.com",
+  messagingSenderId: "209841731179",
+  appId: "1:209841731179:web:98c55f2439b94bf538632e",
+  measurementId: "G-GDC7SELKG1"
 };
 
 let app;

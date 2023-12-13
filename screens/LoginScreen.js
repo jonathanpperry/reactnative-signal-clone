@@ -29,7 +29,7 @@ const LoginScreen = ({ navigation }) => {
       <Image
         source={{
           uri:
-            "https://blog.mozilla.org/internetcitizen/files/2018/08/signal-logo.png",
+            "https://upload.wikimedia.org/wikipedia/commons/8/8d/Signal-Logo.svg",
         }}
         style={{ width: 200, height: 200 }}
       />
